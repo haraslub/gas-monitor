@@ -56,7 +56,7 @@ def run():
             if (diff > 1):
                 for i in range(start, end):
                     current_block = last_block + 1
-                    print(f"Next block in loop: {current_block}")
+                    print(f"Next block in the loop: {current_block}")
                     last_block = process_block(current_block)
             else:
                 last_block = process_block(current_block)

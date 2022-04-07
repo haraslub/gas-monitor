@@ -2,7 +2,6 @@ import pandas as pd
 import numpy as np
 
 from web3.auto.infura import w3
-from scripts.helpers import export_data
 from statistics import mean
 
 

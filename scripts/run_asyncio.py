@@ -1,5 +1,5 @@
 """
-NOT RECOMMENDED for this approach process only the latest blocks
+NOT RECOMMENDED for this approach processes only the latest blocks at the time
 and thus not all of them.
 """
 
