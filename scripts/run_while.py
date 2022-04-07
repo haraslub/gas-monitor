@@ -23,7 +23,7 @@ def run():
                 last_block = current_block - 1
                 start_of_process = False
 
-            # if the current block and the lastly one processed are equal, not print
+            # if the current block and the last one processed are equal, not print
             # the following statements again.
             if block_equality == False:
                 behind_block = current_block - last_block
@@ -31,8 +31,8 @@ def run():
                 print_row("Last processed block:", last_block)
                 print_row("Behind blocks:", behind_block)
             
-            # if there is too much (over the threshold) unprocessed blocks, skip them
-            # in order to sync.
+            # if there is too much unprocessed blocks (i.e. over the threshold defined),
+            #  skip them in order to sync.
             if isinstance(BEHIND_BLOCK_THRESHOLD, int):
                 if behind_block > BEHIND_BLOCK_THRESHOLD:
                     print(f"\nSkiping {behind_block} blocks to sync.")
@@ -40,20 +40,21 @@ def run():
                     print_row("Current block:", current_block)
                     print_row("Last processed block:", last_block)
 
-            # check if the current block and the lastly one processed are equal;
+            # check if the current block and the lastly one processed are equal, 
+            # if yes go at the beginning of the loop
             if (last_block == current_block):
                 block_equality = True
                 time.sleep(1)
                 continue
             
-            # set block equality to False and get the blocks numbers to be processed
+            # set block equality to False
             block_equality = False
+            
+            # if the last processed block is behind more than two blocks 
+            # from the current block, all the blocks behind to be process first
             start = last_block
             end = current_block
             diff = end - start
-
-            # if the lastly processed block is behind more than two blocks 
-            # from the current block, processed them each
             if (diff > 1):
                 for i in range(start, end):
                     current_block = last_block + 1

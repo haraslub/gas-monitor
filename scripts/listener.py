@@ -17,7 +17,7 @@ def process_block(block_number="latest"):
     
     end = timer() # to stop measuring the process
 
-    # dump info to the console
+    # dump results to the console
     print_all_rows(
         block_num=transactions_data[0], # the block number
         num_of_txs=len(gas_prices), # the number of transactions in the block
